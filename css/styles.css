@@ -1,0 +1,29 @@
+
+
+p {
+    font-size: 18px;
+    color: 000;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.loader {
+    border: 12px solid #dddcdc;
+    border-top: 12px solid rgb(33, 0, 219);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
