@@ -7,25 +7,27 @@ const resultsContainer = document.getElementById("results");
 async function getInfo() {
     try {
         const response = await fetch(url);
-        const results = await response.json();
+        const data = await response.json();
 
-        console.log(results);
+        console.log(data.results);
 
         resultsContainer.innerHTML = "";
 
-        for (let i = 0; i > results.length; i++) {
-            console.log(results[i].name);
-            console.log(results[i].rating);
-            console.log(results[i].tags.length);
+        for (let i = 0; i <= 7; i++) {
 
-            if (i === 8) {
+            let game = data.results[i];
+            if (game === undefined) {
                 break;
             }
 
-            resultsContainer.innerHTML = `<div id="result">
-                                            <p>Name: ${results[i].name}</p>
-                                            <p>Rating: ${results[i].rating}</p>
-                                            <p>Number of tags: ${results[i].tags.length}</p>
+            console.log(game.name);
+            console.log(game.rating);
+            console.log(game.tags.length);
+
+            resultsContainer.innerHTML += `<div id="results">
+                                            <p>Name: ${game.name}</p>
+                                            <p>Rating: ${game.rating}</p>
+                                            <p>Number of tags: ${game.tags.length}</p>
                                         </div>`;
         }
     } catch (error) {
